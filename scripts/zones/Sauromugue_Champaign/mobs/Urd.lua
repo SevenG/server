@@ -1,11 +1,11 @@
 -----------------------------------
 --  Mob: Urd
 -----------------------------------
-require("scripts/globals/keyitems")
-require("scripts/globals/voidwalker")
-require("scripts/globals/hunts")
+require('scripts/globals/hunts')
+require('scripts/globals/keyitems')
+require('scripts/globals/magian')
+require('scripts/globals/voidwalker')
 -----------------------------------
-
 local entity = {}
 
 entity.onMobInitialize = function(mob)
@@ -31,6 +31,7 @@ end
 entity.onMobDeath = function(mob, player, optParams)
     xi.voidwalker.onMobDeath(mob, player, optParams, xi.keyItem.YELLOW_ABYSSITE)
     xi.hunts.checkHunt(mob, player, 554)
+    xi.magian.onMobDeath(mob, player, optParams, set{ 222, 650, 716, 947 })
 end
 
 return entity

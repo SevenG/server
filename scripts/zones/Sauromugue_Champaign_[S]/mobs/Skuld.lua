@@ -1,9 +1,10 @@
 -----------------------------------
 --  Mob: Skuld
 -----------------------------------
-require("scripts/globals/keyitems")
-require("scripts/globals/voidwalker")
-require("scripts/globals/hunts")
+require('scripts/globals/hunts')
+require('scripts/globals/keyitems')
+require('scripts/globals/magian')
+require('scripts/globals/voidwalker')
 -----------------------------------
 
 local entity = {}
@@ -31,6 +32,7 @@ end
 entity.onMobDeath = function(mob, player, optParams)
     xi.voidwalker.onMobDeath(mob, player, optParams, xi.keyItem.YELLOW_ABYSSITE)
     xi.hunts.checkHunt(mob, player, 555)
+    xi.magian.onMobDeath(mob, player, optParams, set{ 783 })
 end
 
 return entity
